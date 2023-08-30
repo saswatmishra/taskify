@@ -14,7 +14,12 @@ interface Props {
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
+  const focusRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * @description Handles the done action
+   * @param id
+   */
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
@@ -23,10 +28,19 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     );
   };
 
+  /**
+   * @description Handles delete tasks
+   * @param id
+   */
   const handleDelete = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  /**
+   * @description Handles the edit tasks
+   * @param e
+   * @param id
+   */
   const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
     setTodos(
@@ -34,8 +48,6 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     );
     setEdit(false);
   };
-
-  const focusRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     focusRef.current?.focus();
