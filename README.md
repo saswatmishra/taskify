@@ -1,3 +1,9 @@
+In progress:
+1. Separate columns for Active and Completed tasks.
+2. Drag and Drop functionality for the tasks to assign the priority.
+3. Testing of the application.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
